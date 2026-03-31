@@ -1,1010 +1,1010 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~*~ George Mount's EXCEL PARADISE ~*~ Stringfest Analytics ~*~</title>
-    <style>
-        /* Stringfest brand colors meeting Geocities chaos */
-        :root {
-            --brand-red: #CF3338;
-            --brand-red-dark: #C00000;
-            --bg-light: #EEECE1;
-            --text-body: #707070;
-            --text-dark: #1F2120;
-            --white: #FFFFFF;
-            --font-heading: 'Arial Black', Arial, sans-serif;
-            --font-body: Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='40' fill='%23EEECE1'/%3E%3Crect x='0' y='0' width='20' height='20' fill='%23E8E6DB' opacity='0.5'/%3E%3Crect x='20' y='20' width='20' height='20' fill='%23E8E6DB' opacity='0.5'/%3E%3C/svg%3E");
-            font-family: var(--font-body);
-            color: var(--text-dark);
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Marquee-style top banner */
-        .top-banner {
-            background: var(--brand-red-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 4px 0;
-            font-size: 11px;
-            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-            letter-spacing: 1px;
-        }
-
-        /* The big honkin' header */
-        .site-header {
-            background: linear-gradient(180deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
-            text-align: center;
-            padding: 20px 10px 15px;
-            border-bottom: 4px solid var(--text-dark);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .site-header h1 {
-            font-family: var(--font-heading);
-            color: var(--white);
-            font-size: 38px;
-            margin: 0;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
-            letter-spacing: 2px;
-        }
-
-        .site-header .tagline {
-            color: var(--bg-light);
-            font-size: 14px;
-            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-            margin-top: 5px;
-        }
-
-        .star-divider {
-            color: #FFD700;
-            font-size: 18px;
-            letter-spacing: 8px;
-            margin: 6px 0;
-        }
-
-        /* Construction GIF area */
-        .under-construction {
-            text-align: center;
-            padding: 8px;
-            background: var(--white);
-            border-top: 3px dashed var(--brand-red);
-            border-bottom: 3px dashed var(--brand-red);
-            font-size: 12px;
-            color: var(--brand-red);
-            font-weight: bold;
-            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-        }
-
-        /* Visitor counter */
-        .visitor-counter {
-            text-align: center;
-            padding: 8px;
-            font-size: 11px;
-            color: var(--text-body);
-        }
-
-        .visitor-counter .counter-box {
-            display: inline-block;
-            background: #000;
-            color: #00FF00;
-            font-family: 'Courier New', monospace;
-            padding: 3px 12px;
-            border: 2px inset #888;
-            font-size: 14px;
-            letter-spacing: 3px;
-        }
-
-        /* Navigation bar - Geocities style */
-        .nav-bar {
-            background: var(--text-dark);
-            text-align: center;
-            padding: 6px 0;
-            border-bottom: 2px solid var(--brand-red);
-        }
-
-        .nav-bar a {
-            color: var(--white);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-size: 13px;
-            padding: 4px 12px;
-            margin: 0 2px;
-            border: 1px outset #666;
-            background: var(--brand-red);
-            display: inline-block;
-            transition: background 0.2s;
-        }
-
-        .nav-bar a:hover {
-            background: var(--brand-red-dark);
-            border-style: inset;
-        }
-
-        /* Main layout - classic table-style with CSS */
-        .main-layout {
-            display: flex;
-            max-width: 900px;
-            margin: 0 auto;
-            gap: 0;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 180px;
-            min-width: 180px;
-            background: var(--white);
-            border-right: 3px ridge var(--brand-red);
-            padding: 10px;
-            font-size: 12px;
-        }
-
-        .sidebar h3 {
-            font-family: var(--font-heading);
-            color: var(--brand-red);
-            font-size: 13px;
-            margin: 12px 0 6px 0;
-            border-bottom: 1px solid var(--brand-red);
-            padding-bottom: 3px;
-        }
-
-        .sidebar h3:first-child {
-            margin-top: 0;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 10px 0;
-        }
-
-        .sidebar ul li {
-            padding: 2px 0;
-        }
-
-        .sidebar ul li::before {
-            content: "\25B6";
-            color: var(--brand-red);
-            font-size: 8px;
-            margin-right: 5px;
-        }
-
-        .sidebar a {
-            color: var(--brand-red);
-            text-decoration: underline;
-            font-size: 11px;
-        }
-
-        .sidebar a:hover {
-            color: var(--brand-red-dark);
-        }
-
-        .sidebar .webring {
-            text-align: center;
-            border: 2px ridge var(--brand-red);
-            padding: 8px;
-            margin-top: 10px;
-            background: var(--bg-light);
-            font-size: 10px;
-        }
-
-        .sidebar .webring .webring-title {
-            font-family: var(--font-heading);
-            color: var(--brand-red);
-            font-size: 11px;
-            margin-bottom: 4px;
-        }
-
-        .sidebar .guestbook-btn {
-            display: block;
-            text-align: center;
-            background: var(--brand-red);
-            color: var(--white);
-            padding: 6px;
-            margin: 8px 0;
-            font-family: var(--font-heading);
-            font-size: 11px;
-            border: 2px outset #e88;
-            text-decoration: none;
-        }
-
-        .sidebar .guestbook-btn:hover {
-            background: var(--brand-red-dark);
-            border-style: inset;
-        }
-
-        .badge-area img, .badge-area .badge {
-            display: block;
-            margin: 4px auto;
-        }
-
-        .badge {
-            border: 1px solid var(--text-body);
-            padding: 3px 8px;
-            font-size: 9px;
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            margin: 4px auto;
-            display: block;
-            background: var(--white);
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-
-        .badge-highlight {
-            background: var(--brand-red);
-            color: var(--white);
-            border-color: var(--brand-red-dark);
-        }
-
-        /* Content area */
-        .content {
-            flex: 1;
-            padding: 15px 20px;
-            min-height: 600px;
-        }
-
-        .content h2 {
-            font-family: var(--font-heading);
-            color: var(--brand-red);
-            font-size: 22px;
-            margin: 20px 0 8px 0;
-            text-align: left;
-        }
-
-        .content h2:first-child {
-            margin-top: 5px;
-        }
-
-        .content h3 {
-            font-family: var(--font-heading);
-            color: var(--text-dark);
-            font-size: 16px;
-            margin: 15px 0 5px 0;
-        }
-
-        .content p {
-            color: var(--text-body);
-            font-size: 13px;
-            line-height: 1.6;
-            margin: 6px 0;
-        }
-
-        .content a {
-            color: var(--brand-red);
-        }
-
-        .content a:visited {
-            color: var(--brand-red-dark);
-        }
-
-        /* Geocities horizontal rule */
-        .geo-hr {
-            border: none;
-            height: 6px;
-            background: linear-gradient(90deg, transparent, var(--brand-red), var(--brand-red-dark), var(--brand-red), transparent);
-            margin: 15px 0;
-        }
-
-        /* Blink simulation */
-        @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-
-        .blink {
-            animation: blink 1s step-end infinite;
-        }
-
-        /* Marquee simulation */
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            background: var(--text-dark);
-            padding: 4px 0;
-            margin: 10px 0;
-        }
-
-        .marquee-text {
-            display: inline-block;
-            animation: marquee 15s linear infinite;
-            color: #FFD700;
-            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        /* About me section with "photo" */
-        .about-box {
-            border: 3px ridge var(--brand-red);
-            padding: 12px;
-            background: var(--white);
-            margin: 10px 0;
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .about-photo {
-            width: 120px;
-            min-width: 120px;
-            height: 140px;
-            background: var(--bg-light);
-            border: 2px solid var(--brand-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            position: relative;
-        }
-
-        .about-photo::after {
-            content: "George M.";
-            position: absolute;
-            bottom: -2px;
-            font-size: 9px;
-            color: var(--text-body);
-            font-family: var(--font-body);
-            background: var(--white);
-            padding: 0 4px;
-        }
-
-        /* Book section */
-        .book-card {
-            border: 2px ridge var(--text-body);
-            padding: 10px;
-            margin: 8px 0;
-            background: var(--white);
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .book-icon {
-            font-size: 40px;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        .book-card h4 {
-            font-family: var(--font-heading);
-            color: var(--brand-red);
-            font-size: 13px;
-            margin: 0 0 4px 0;
-        }
-
-        .book-card p {
-            font-size: 11px;
-            margin: 0;
-        }
-
-        /* Skills table */
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-            font-size: 12px;
-        }
-
-        .skills-table th {
-            background: var(--brand-red);
-            color: var(--white);
-            font-family: var(--font-heading);
-            padding: 6px 10px;
-            text-align: left;
-            font-size: 12px;
-        }
-
-        .skills-table td {
-            padding: 5px 10px;
-            border-bottom: 1px solid #ddd;
-            color: var(--text-body);
-        }
-
-        .skills-table tr:nth-child(even) td {
-            background: var(--white);
-        }
-
-        .skills-table tr:nth-child(odd) td {
-            background: var(--bg-light);
-        }
-
-        .skill-bar {
-            background: #ddd;
-            height: 12px;
-            border: 1px inset #999;
-            position: relative;
-        }
-
-        .skill-bar-fill {
-            background: linear-gradient(180deg, #e85555, var(--brand-red));
-            height: 100%;
-        }
-
-        /* Fun facts / MVP callout */
-        .callout-box {
-            border: 3px double var(--brand-red);
-            padding: 12px;
-            margin: 12px 0;
-            background: var(--white);
-            text-align: center;
-        }
-
-        .callout-box .big-number {
-            font-family: var(--font-heading);
-            font-size: 48px;
-            color: var(--brand-red);
-            line-height: 1;
-        }
-
-        .callout-box .label {
-            font-size: 12px;
-            color: var(--text-body);
-            margin-top: 2px;
-        }
-
-        .stats-row {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .stats-row .callout-box {
-            flex: 1;
-            min-width: 130px;
-        }
-
-        /* Guestbook section */
-        .guestbook {
-            border: 2px inset #999;
-            padding: 10px;
-            background: var(--white);
-            margin: 10px 0;
-            font-size: 11px;
-        }
-
-        .guestbook-entry {
-            border-bottom: 1px dashed var(--brand-red);
-            padding: 6px 0;
-        }
-
-        .guestbook-entry:last-child {
-            border-bottom: none;
-        }
-
-        .guestbook-entry .gb-name {
-            font-weight: bold;
-            color: var(--brand-red);
-        }
-
-        .guestbook-entry .gb-date {
-            color: #999;
-            font-size: 10px;
-        }
-
-        /* Links page style */
-        .cool-links a {
-            display: block;
-            padding: 3px 0;
-            font-size: 12px;
-        }
-
-        /* Footer */
-        .site-footer {
-            background: var(--text-dark);
-            color: var(--text-body);
-            text-align: center;
-            padding: 15px;
-            font-size: 10px;
-            border-top: 3px solid var(--brand-red);
-            position: relative;
-        }
-
-        .site-footer a {
-            color: var(--brand-red);
-        }
-
-        /* Chevron motif - bottom right (brand requirement) */
-        .chevron-motif {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 120px;
-            height: 120px;
-            pointer-events: none;
-            opacity: 0.15;
-            z-index: 0;
-        }
-
-        /* Sparkle text effect */
-        @keyframes sparkle {
-            0%, 100% { text-shadow: 0 0 4px #FFD700, 0 0 8px var(--brand-red); }
-            50% { text-shadow: 0 0 8px #FFD700, 0 0 16px var(--brand-red), 0 0 24px #FFD700; }
-        }
-
-        .sparkle {
-            animation: sparkle 1.5s ease-in-out infinite;
-        }
-
-        /* NEW badge */
-        .new-badge {
-            display: inline-block;
-            background: #FFD700;
-            color: var(--brand-red-dark);
-            font-size: 9px;
-            font-weight: bold;
-            padding: 1px 5px;
-            font-family: var(--font-heading);
-            animation: blink 1.2s step-end infinite;
-            vertical-align: super;
-        }
-
-        /* Animated email icon */
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
-
-        .bounce {
-            display: inline-block;
-            animation: bounce 0.6s ease-in-out infinite;
-        }
-
-        /* "Best viewed" badge */
-        .best-viewed {
-            font-size: 10px;
-            color: var(--text-body);
-            margin-top: 8px;
-        }
-
-        /* Section anchors */
-        section {
-            scroll-margin-top: 20px;
-        }
-
-        /* Responsive-ish (Geocities didn't have this but we're nice) */
-        @media (max-width: 700px) {
-            .main-layout {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: auto;
-                min-width: auto;
-                border-right: none;
-                border-bottom: 3px ridge var(--brand-red);
-            }
-            .about-box {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-        }
-    </style>
+<title>~*~GeOrGe MoUnT's ExCeL pArAdIsE~*~ Stringfest Analytics ~*~ WELCOME!!!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Excel, spreadsheet, VLOOKUP, XLOOKUP, pivot table, Power Query, Power Pivot, Microsoft MVP, George Mount, Stringfest Analytics, data analytics, O'Reilly, LinkedIn Learning, Cleveland Ohio, spreadsheet guru, Excel tips, Excel tricks, formulas, macros, VBA, Python in Excel, Copilot">
+<meta name="description" content="Welcome to George Mount's Excel Paradise! Microsoft MVP, O'Reilly Author, LinkedIn Learning Instructor. Stringfest Analytics - Your #1 Source for Excel Knowledge on the World Wide Web!!!">
+<style>
+/* STARFIELD BACKGROUND - very 1997 */
+body {
+    background-color: #0a0a2e;
+    background-image:
+        radial-gradient(1px 1px at 10% 15%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 20% 35%, #ffffff 50%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 30% 5%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 40% 70%, #aaaacc 50%, transparent 50%),
+        radial-gradient(1px 1px at 50% 20%, #ffffff 50%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 60% 45%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 70% 80%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 80% 10%, #aaaacc 50%, transparent 50%),
+        radial-gradient(1px 1px at 90% 55%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 15% 65%, #ffffff 50%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 25% 90%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 35% 40%, #aaaacc 50%, transparent 50%),
+        radial-gradient(1px 1px at 45% 85%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 55% 60%, #ffffff 50%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 65% 25%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 75% 50%, #aaaacc 50%, transparent 50%),
+        radial-gradient(1px 1px at 85% 75%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 95% 30%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 5% 45%, #ffffff 50%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 12% 82%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 28% 18%, #aaaacc 50%, transparent 50%),
+        radial-gradient(1px 1px at 38% 58%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 48% 42%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 62% 72%, #ffffff 50%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 72% 8%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 82% 38%, #aaaacc 50%, transparent 50%),
+        radial-gradient(1px 1px at 92% 88%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 8% 28%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 18% 52%, #ffffff 50%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 33% 72%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 43% 12%, #aaaacc 50%, transparent 50%),
+        radial-gradient(1px 1px at 57% 92%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 67% 38%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 77% 62%, #ffffff 50%, transparent 50%),
+        radial-gradient(1px 1px at 87% 22%, #ffffff 50%, transparent 50%);
+    color: #EEECE1;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+a { color: #CF3338; }
+a:visited { color: #e87070; }
+a:hover { color: #FFD700; }
+
+center { display: block; }
+
+/* Blink */
+@keyframes blink {
+    0%, 49% { visibility: visible; }
+    50%, 100% { visibility: hidden; }
+}
+.blink { animation: blink 1s step-end infinite; }
+
+/* Marquee */
+@keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.marquee-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.marquee-inner {
+    display: inline-block;
+    animation: scroll-left 20s linear infinite;
+}
+
+/* Rainbow text effect */
+@keyframes rainbow {
+    0% { color: #CF3338; }
+    25% { color: #FFD700; }
+    50% { color: #CF3338; }
+    75% { color: #EEECE1; }
+    100% { color: #CF3338; }
+}
+.rainbow { animation: rainbow 3s ease-in-out infinite; }
+
+/* Glow pulse for logo */
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 5px #CF3338) drop-shadow(0 0 10px #C00000); }
+    50% { filter: drop-shadow(0 0 15px #CF3338) drop-shadow(0 0 30px #C00000) drop-shadow(0 0 45px #CF3338); }
+}
+.logo-glow { animation: glow 2s ease-in-out infinite; }
+
+/* Sparkle for stars */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Pixel-ish beveled box */
+.bevel-box {
+    border: 3px outset #707070;
+    padding: 10px;
+    margin: 10px auto;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.bevel-box-red {
+    border: 3px outset #CF3338;
+    padding: 10px;
+    margin: 10px auto;
+    background: rgba(100, 0, 0, 0.3);
+}
+
+/* Table links area */
+.link-table {
+    border: 2px ridge #CF3338;
+    border-collapse: separate;
+    border-spacing: 2px;
+    margin: 10px auto;
+    background: rgba(0, 0, 0, 0.5);
+}
+.link-table td {
+    border: 1px inset #555;
+    padding: 6px 15px;
+    text-align: center;
+    font-size: 14px;
+}
+.link-table td:hover {
+    background: rgba(207, 51, 56, 0.3);
+}
+
+/* Hit counter style */
+.counter {
+    font-family: 'Courier New', monospace;
+    background: #000;
+    color: #00ff00;
+    border: 2px inset #444;
+    padding: 2px 8px;
+    font-size: 16px;
+    letter-spacing: 3px;
+    display: inline-block;
+}
+
+/* Horizontal rules - the good stuff */
+.fire-hr {
+    border: none;
+    height: 8px;
+    background: linear-gradient(90deg, transparent 0%, #C00000 10%, #CF3338 25%, #FFD700 40%, #CF3338 55%, #C00000 70%, #FFD700 85%, #C00000 90%, transparent 100%);
+    margin: 15px 30px;
+}
+
+.red-hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #CF3338, #C00000, #CF3338, transparent);
+    margin: 12px 50px;
+}
+
+.star-hr {
+    text-align: center;
+    border: none;
+    font-size: 14px;
+    color: #FFD700;
+    letter-spacing: 6px;
+    margin: 10px 0;
+}
+
+/* Webring box */
+.webring {
+    border: 2px ridge #707070;
+    padding: 8px;
+    margin: 8px auto;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Guestbook entries */
+.gb-entry {
+    border-bottom: 1px dashed #CF3338;
+    padding: 8px 0;
+    text-align: left;
+    font-size: 13px;
+}
+
+/* "Button" links */
+.geo-btn {
+    display: inline-block;
+    border: 2px outset #999;
+    background: linear-gradient(180deg, #ddd 0%, #888 100%);
+    color: #000 !important;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 3px;
+}
+.geo-btn:hover {
+    border-style: inset;
+    background: linear-gradient(180deg, #bbb 0%, #666 100%);
+}
+
+.geo-btn-red {
+    display: inline-block;
+    border: 2px outset #e88;
+    background: linear-gradient(180deg, #CF3338 0%, #800 100%);
+    color: #fff !important;
+    padding: 4px 16px;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 3px;
+}
+.geo-btn-red:hover {
+    border-style: inset;
+}
+
+/* Badge images */
+.badge-88x31 {
+    display: inline-block;
+    border: 1px solid #555;
+    width: 88px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    font-size: 8px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 2px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+/* The email bounce */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.bounce { display: inline-block; animation: bounce 0.5s ease-in-out infinite; }
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.spin { display: inline-block; animation: spin 3s linear infinite; }
+
+/* Construction stripes */
+.construction-stripe {
+    height: 14px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #FFD700 0px, #FFD700 10px,
+        #000 10px, #000 20px
+    );
+}
+</style>
 </head>
 <body>
 
-<!-- Top Banner -->
-<div class="top-banner">
-    * * * WELCOME TO GEORGE'S EXCEL PARADISE * * * LAST UPDATED: MARCH 2026 * * * YOU ARE VISITOR #
-    <span style="font-family: 'Courier New', monospace;">007,342</span> * * *
+<!-- CONSTRUCTION STRIPE -->
+<div class="construction-stripe"></div>
+
+<!-- ============================================================ -->
+<!-- WELCOME / TOP AREA -->
+<!-- ============================================================ -->
+<br>
+<center>
+
+<!-- ANIMATED LOGO - Stacked Version (Geocities-ified) -->
+<div class="logo-glow" style="margin: 10px auto;">
+<svg width="320" height="260" viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+    <!-- Starfield inside logo area -->
+    <defs>
+        <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF4444"/>
+            <stop offset="50%" style="stop-color:#CF3338"/>
+            <stop offset="100%" style="stop-color:#C00000"/>
+        </linearGradient>
+        <filter id="bevel">
+            <feDropShadow dx="2" dy="2" stdDeviation="0" flood-color="#600" flood-opacity="0.8"/>
+            <feDropShadow dx="-1" dy="-1" stdDeviation="0" flood-color="#ff8888" flood-opacity="0.4"/>
+        </filter>
+        <filter id="textBevel">
+            <feDropShadow dx="2" dy="2" stdDeviation="0" flood-color="#000" flood-opacity="0.7"/>
+        </filter>
+    </defs>
+    <!-- Chevron/Mountain peaks - thick beveled lines -->
+    <!-- Left peak -->
+    <polyline points="40,145 100,40 160,145" fill="none" stroke="url(#redGrad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#bevel)"/>
+    <!-- Center peak -->
+    <polyline points="100,145 160,40 220,145" fill="none" stroke="url(#redGrad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#bevel)"/>
+    <!-- Right peak -->
+    <polyline points="160,145 220,40 280,145" fill="none" stroke="url(#redGrad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#bevel)"/>
+    <!-- Second row of peaks (offset down) -->
+    <polyline points="40,115 100,10 160,115" fill="none" stroke="url(#redGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <polyline points="160,115 220,10 280,115" fill="none" stroke="url(#redGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <!-- STRINGFEST text -->
+    <text x="160" y="195" text-anchor="middle" font-family="'Arial Black', Impact, sans-serif" font-size="52" font-weight="900" fill="#1F2120" stroke="#555" stroke-width="1" filter="url(#textBevel)" letter-spacing="2">STRINGFEST</text>
+    <!-- ANALYTICS text -->
+    <text x="230" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#707070" letter-spacing="8" filter="url(#textBevel)">ANALYTICS</text>
+    <!-- Sparkle decorations -->
+    <text x="20" y="25" font-size="16" fill="#FFD700" opacity="0.8">&#10022;</text>
+    <text x="295" y="20" font-size="12" fill="#FFD700" opacity="0.6">&#10022;</text>
+    <text x="305" y="240" font-size="14" fill="#FFD700" opacity="0.7">&#10022;</text>
+    <text x="10" y="230" font-size="10" fill="#FFD700" opacity="0.5">&#10022;</text>
+</svg>
 </div>
 
-<!-- Header -->
-<header class="site-header">
-    <div class="star-divider">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-    <h1>STRINGFEST ANALYTICS</h1>
-    <div class="tagline">~*~ George Mount's Excel &amp; Data Analytics Homepage ~*~</div>
-    <div class="star-divider">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-</header>
+<font size="2" color="#FFD700">&#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029;</font>
 
-<!-- Under Construction -->
-<div class="under-construction">
-    &#128679; UNDER CONSTRUCTION &#128679; &mdash; More Excel tips coming soon!! Check back often!! &#128679;
-</div>
+<br><br>
 
-<!-- Navigation -->
-<nav class="nav-bar">
-    <a href="#home">HOME</a>
-    <a href="#about">ABOUT ME</a>
-    <a href="#books">MY BOOKS</a>
-    <a href="#skills">SKILLS</a>
-    <a href="#guestbook">GUESTBOOK</a>
-    <a href="#links">COOL LINKS</a>
-</nav>
+<font size="5" color="#CF3338"><b>W E L C O M E&nbsp;&nbsp;&nbsp;T O</b></font>
+<br>
+<font size="7" color="#EEECE1"><b>George Mount's</b></font>
+<br>
+<font size="6" color="#CF3338"><b><span class="rainbow">~ E X C E L &nbsp; P A R A D I S E ~</span></b></font>
+<br><br>
 
-<!-- Marquee -->
-<div class="marquee-container">
-    <span class="marquee-text">
-        &#9733; &#9733; &#9733; MICROSOFT MVP AWARD WINNER! &#9733; &#9733; &#9733; O'REILLY AUTHOR &#9733; &#9733; &#9733; 400,000+ LINKEDIN LEARNING STUDENTS &#9733; &#9733; &#9733; CLEVELAND, OHIO REPRESENT! &#9733; &#9733; &#9733; VLOOKUP IS DEAD, LONG LIVE XLOOKUP &#9733; &#9733; &#9733;
+<font size="2" color="#FFD700">&#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029; &#10029;</font>
+
+<br><br>
+
+<!-- UNDER CONSTRUCTION -->
+<font size="2" color="#FFD700">
+    <span class="bounce">&#128679;</span>
+    <b>&nbsp;THIS SITE IS PERMANENTLY UNDER CONSTRUCTION&nbsp;</b>
+    <span class="bounce">&#128679;</span>
+</font>
+
+<br><br>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" style="background: #000; padding: 3px 0; border-top: 1px solid #CF3338; border-bottom: 1px solid #CF3338;">
+    <span class="marquee-inner" style="color: #FFD700; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold;">
+        &#9733;&#9733;&#9733; MICROSOFT MVP AWARD WINNER!!! &#9733;&#9733;&#9733; TWO O'REILLY BOOKS PUBLISHED &#9733;&#9733;&#9733; 400,000+ LINKEDIN LEARNING STUDENTS &#9733;&#9733;&#9733; CLEVELAND OHIO REPRESENT!!! &#9733;&#9733;&#9733; VLOOKUP IS DEAD, LONG LIVE XLOOKUP &#9733;&#9733;&#9733; POWER QUERY FOREVER &#9733;&#9733;&#9733;
     </span>
 </div>
 
-<!-- Main Layout -->
-<div class="main-layout">
+<br>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h3>&#128640; Quick Links</h3>
-        <ul>
-            <li><a href="https://stringfestanalytics.com" target="_blank">My Real Website</a></li>
-            <li><a href="https://www.linkedin.com/in/georgemount/" target="_blank">LinkedIn</a></li>
-            <li><a href="#books">My O'Reilly Books</a></li>
-            <li><a href="#skills">Skill Levels</a></li>
-        </ul>
+<!-- HIT COUNTER -->
+<font size="2" color="#707070">You are visitor number:</font><br>
+<span class="counter" id="hitCounter">008,472</span>
+<br><font size="1" color="#707070">to this site since January 12, 1999</font>
 
-        <h3>&#127775; Site Awards</h3>
-        <div class="badge-area">
-            <span class="badge badge-highlight">&#9733; MICROSOFT MVP &#9733;</span>
-            <span class="badge">Best of Excel Web</span>
-            <span class="badge">5-Star Data Site</span>
-            <span class="badge badge-highlight">O'Reilly Author</span>
-        </div>
+<br><br>
 
-        <a href="#guestbook" class="guestbook-btn">&#9997; SIGN MY GUESTBOOK!</a>
+<hr class="fire-hr">
 
-        <h3>&#128172; Web Rings</h3>
-        <div class="webring">
-            <div class="webring-title">&#9656; Excel Geeks Ring &#9666;</div>
-            <div style="margin-top: 4px;">
-                <a href="#">&laquo; Prev</a> |
-                <a href="#">List</a> |
-                <a href="#">Next &raquo;</a>
-            </div>
-        </div>
-        <div class="webring" style="margin-top: 6px;">
-            <div class="webring-title">&#9656; Data Nerds United &#9666;</div>
-            <div style="margin-top: 4px;">
-                <a href="#">&laquo; Prev</a> |
-                <a href="#">List</a> |
-                <a href="#">Next &raquo;</a>
-            </div>
-        </div>
+<!-- ============================================================ -->
+<!-- NAVIGATION TABLE -->
+<!-- ============================================================ -->
 
-        <h3>&#127925; Now Playing</h3>
-        <p style="font-size: 10px; color: var(--text-body); margin: 4px 0;">
-            &#127926; <em>"Don't Stop Believin'"</em><br>
-            <span style="font-size: 9px;">(on my MIDI player)</span>
-        </p>
+<font size="4" color="#CF3338"><b>Keys or Bookmarks to Information on This Website</b></font>
 
-        <h3>&#128197; Site Stats</h3>
-        <p style="font-size: 10px; margin: 2px 0; color: var(--text-body);">
-            Created: Jan 1999<br>
-            Last Updated: 03/30/2026<br>
-            Best viewed at 800x600
-        </p>
-    </aside>
+<br><br>
 
-    <!-- Content Area -->
-    <main class="content">
+<table class="link-table" cellpadding="0" cellspacing="2" width="600">
+<tr>
+    <td><a href="#about"><font color="#CF3338"><b>About George</b></font></a></td>
+    <td><a href="#books"><font color="#CF3338"><b>My Books</b></font></a></td>
+</tr>
+<tr>
+    <td><a href="#whatido"><font color="#CF3338"><b>What I Do</b></font></a></td>
+    <td><a href="#skills"><font color="#CF3338"><b>Skill Levels</b></font></a></td>
+</tr>
+<tr>
+    <td><a href="#hottakes"><font color="#CF3338"><b>Hot Excel Takes</b></font></a></td>
+    <td><a href="#guestbook"><font color="#CF3338"><b>Sign My Guestbook!</b></font></a></td>
+</tr>
+<tr>
+    <td><a href="#links"><font color="#CF3338"><b>Cool Links</b></font></a></td>
+    <td><a href="#webring"><font color="#CF3338"><b>Web Rings</b></font></a></td>
+</tr>
+</table>
 
-        <!-- Home Section -->
-        <section id="home">
-            <h2>&#127968; Welcome to My Homepage!</h2>
-            <p>
-                <span class="sparkle" style="font-size: 16px; font-weight: bold; color: var(--brand-red);">
-                    Hello World Wide Web!!!
-                </span>
-            </p>
-            <p>
-                Welcome to my corner of the information superhighway! My name is <strong>George Mount</strong>
-                and I am TOTALLY obsessed with <strong>Microsoft Excel</strong>, data analytics, and helping
-                people be awesome with spreadsheets. If you love VLOOKUP (or should I say XLOOKUP
-                <span class="new-badge">NEW!</span>), pivot tables, Power Query, and Python &mdash;
-                you've come to the right place!!
-            </p>
-            <p>
-                I'm a <strong style="color: var(--brand-red);">Microsoft Most Valuable Professional (MVP)</strong>,
-                an <strong>O'Reilly author</strong> (TWO books!!), and a <strong>LinkedIn Learning instructor</strong>
-                with over <strong>400,000 learners</strong> worldwide! I am based in the great city of
-                <strong>Cleveland, Ohio</strong>. &#127959;
-            </p>
+<br>
 
-            <hr class="geo-hr">
+<hr class="fire-hr">
 
-            <!-- Stats -->
-            <div class="stats-row">
-                <div class="callout-box">
-                    <div class="big-number">400K+</div>
-                    <div class="label">LinkedIn Learning<br>Students Worldwide</div>
-                </div>
-                <div class="callout-box">
-                    <div class="big-number">2</div>
-                    <div class="label">O'Reilly<br>Books Published</div>
-                </div>
-                <div class="callout-box">
-                    <div class="big-number">MVP</div>
-                    <div class="label">Microsoft Most<br>Valuable Professional</div>
-                </div>
-            </div>
-        </section>
+<!-- ============================================================ -->
+<!-- HORIZONTAL LOGO VERSION -->
+<!-- ============================================================ -->
 
-        <hr class="geo-hr">
+<br>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>&#128100; About Me</h2>
-            <div class="about-box">
-                <div class="about-photo">&#129332;</div>
-                <div>
-                    <p>
-                        <strong>Name:</strong> George Mount<br>
-                        <strong>Location:</strong> Cleveland, Ohio &#127466;&#127480;<br>
-                        <strong>Occupation:</strong> Excel Trainer, Author, Analytics Consultant<br>
-                        <strong>Title:</strong> Microsoft MVP<br>
-                        <strong>Education:</strong> Economics, Finance &amp; Information Systems<br>
-                        <strong>Hobbies:</strong> Making spreadsheets beautiful, Power Query wizardry, teaching people that Ctrl+C/Ctrl+V isn't the only Excel trick
-                    </p>
-                    <p>
-                        I'm a corporate trainer and Excel expert who helps finance, accounting, and operations
-                        teams work smarter with data. I specialize in what I call the <strong>Modern Excel AI
-                        Stack</strong> &mdash; Python in Excel, Copilot, Power Query, and Power Pivot.
-                    </p>
-                    <p>
-                        Through <strong>Stringfest Analytics</strong>, I provide training, curriculum development,
-                        and consulting for organizations looking to strengthen their analytics capabilities.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <hr class="geo-hr">
-
-        <!-- Books Section -->
-        <section id="books">
-            <h2>&#128218; My Books <span class="new-badge">NEW!</span></h2>
-            <p>I have published <strong>TWO</strong> full-length books with O'Reilly Media! (Yes, the ones with the animals on the cover!!) &#129427;</p>
-
-            <div class="book-card">
-                <div class="book-icon">&#128214;</div>
-                <div>
-                    <h4>Advancing into Analytics: From Excel to Python and R</h4>
-                    <p><strong>Publisher:</strong> O'Reilly Media (2021)</p>
-                    <p>Ready to go beyond Excel? This book bridges the gap between spreadsheets and programming languages for data analysis. Your gateway to Python and R!</p>
-                </div>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">&#128213;</div>
-                <div>
-                    <h4>Modern Data Analytics in Excel</h4>
-                    <p><strong>Publisher:</strong> O'Reilly Media (2024)</p>
-                    <p>Power Query! Power Pivot! And more!! Learn how to supercharge your Excel analytics with modern tools. This is the good stuff. &#128293;</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin: 12px 0;">
-                <p style="font-family: 'Comic Sans MS', cursive; color: var(--brand-red); font-size: 14px;">
-                    &#11088; Click the books to buy them! Your mom would be so proud! &#11088;
-                </p>
-            </div>
-        </section>
-
-        <hr class="geo-hr">
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>&#128170; My Skill Levels</h2>
-            <p>Here are my <em>totally scientific</em> skill ratings:</p>
-
-            <table class="skills-table">
-                <thead>
-                    <tr>
-                        <th>Skill</th>
-                        <th>Level</th>
-                        <th style="width: 40%;">Power Meter</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Microsoft Excel</strong></td>
-                        <td>&#128293; LEGENDARY</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 99%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Power Query</strong></td>
-                        <td>&#9889; EPIC</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Power Pivot</strong></td>
-                        <td>&#9889; EPIC</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 92%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Python</strong></td>
-                        <td>&#128640; MASTER</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 88%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Python in Excel</strong></td>
-                        <td>&#128640; MASTER</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Copilot in Excel</strong></td>
-                        <td>&#11088; ADVANCED</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>R</strong></td>
-                        <td>&#11088; ADVANCED</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Teaching / Training</strong></td>
-                        <td>&#128293; LEGENDARY</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 98%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Making Dad Jokes about Data</strong></td>
-                        <td>&#129412; MAX LEVEL</td>
-                        <td><div class="skill-bar"><div class="skill-bar-fill" style="width: 100%;"></div></div></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <hr class="geo-hr">
-
-        <!-- What I Do Section -->
-        <section>
-            <h2>&#128187; What I Can Help You With</h2>
-            <p>Through Stringfest Analytics, I help teams modernize the way they use Excel:</p>
-            <ul style="color: var(--text-body); font-size: 13px; line-height: 2;">
-                <li>&#9658; <strong>Corporate Excel Training</strong> &mdash; from beginner to black belt</li>
-                <li>&#9658; <strong>Modern Excel AI Stack</strong> &mdash; Python in Excel + Copilot + Power Query + Power Pivot</li>
-                <li>&#9658; <strong>Curriculum Development</strong> &mdash; custom training programs for your team</li>
-                <li>&#9658; <strong>Analytics Consulting</strong> &mdash; turn messy data into clear insights</li>
-                <li>&#9658; <strong>Speaking &amp; Presentations</strong> &mdash; Global Excel Summit and beyond!</li>
-                <li>&#9658; <strong>LinkedIn Learning Courses</strong> &mdash; self-paced online learning</li>
-            </ul>
-
-            <div class="callout-box" style="background: var(--brand-red-dark); border-color: var(--brand-red-dark);">
-                <p style="color: var(--white); font-family: 'Comic Sans MS', cursive; font-size: 15px; margin: 0;">
-                    &#128239; Want to work together? Visit
-                    <a href="https://stringfestanalytics.com" target="_blank" style="color: #FFD700;">stringfestanalytics.com</a>
-                    and book a call! &#128239;
-                </p>
-            </div>
-        </section>
-
-        <hr class="geo-hr">
-
-        <!-- Guestbook -->
-        <section id="guestbook">
-            <h2>&#9997; Guestbook</h2>
-            <p>Sign my guestbook and let me know you were here!! <span class="bounce">&#128236;</span></p>
-
-            <div class="guestbook">
-                <div class="guestbook-entry">
-                    <span class="gb-name">ExcelFan2000</span>
-                    <span class="gb-date"> - 03/28/2026</span><br>
-                    George your XLOOKUP tutorial saved my life!! My boss thinks I'm a genius now. TYSM!!! &#128591;
-                </div>
-                <div class="guestbook-entry">
-                    <span class="gb-name">DataNerd_Kelly</span>
-                    <span class="gb-date"> - 03/15/2026</span><br>
-                    Just finished your O'Reilly book. Amazing!! When's the next one?? &#128218;&#128293;
-                </div>
-                <div class="guestbook-entry">
-                    <span class="gb-name">PivotTableKing</span>
-                    <span class="gb-date"> - 02/22/2026</span><br>
-                    Found this site through the Excel Geeks Web Ring. A++ content. Bookmarked!! &#11088;&#11088;&#11088;&#11088;&#11088;
-                </div>
-                <div class="guestbook-entry">
-                    <span class="gb-name">spreadsheet_sally</span>
-                    <span class="gb-date"> - 02/10/2026</span><br>
-                    I used to think Power Query was scary until I watched your LinkedIn Learning course. You rock!! &#127928;
-                </div>
-                <div class="guestbook-entry">
-                    <span class="gb-name">ClevelandRocks88</span>
-                    <span class="gb-date"> - 01/30/2026</span><br>
-                    CLE represent!! Great to have an MVP in our city. Keep it up George!! &#127959;&#128170;
-                </div>
-            </div>
-        </section>
-
-        <hr class="geo-hr">
-
-        <!-- Cool Links -->
-        <section id="links">
-            <h2>&#128279; Cool Links</h2>
-            <p>Check out these <span class="blink" style="color: var(--brand-red); font-weight: bold;">AWESOME</span> sites:</p>
-
-            <div class="cool-links">
-                <h3>&#128202; Excel &amp; Data Stuff</h3>
-                <a href="https://stringfestanalytics.com" target="_blank">&#9658; Stringfest Analytics (my real site!)</a>
-                <a href="https://www.linkedin.com/learning/" target="_blank">&#9658; LinkedIn Learning</a>
-                <a href="https://www.oreilly.com/" target="_blank">&#9658; O'Reilly Media</a>
-                <a href="https://techcommunity.microsoft.com/tag/excel" target="_blank">&#9658; Microsoft Excel Community</a>
-
-                <h3>&#127760; The Best of the Web</h3>
-                <a href="#">&#9658; AltaVista Search Engine</a>
-                <a href="#">&#9658; Angelfire Free Homepages</a>
-                <a href="#">&#9658; The ENCYCLOPAEDIA of encyclopedias (Wikipedia)</a>
-                <a href="#">&#9658; Download Winamp (it really whips the llama's...)</a>
-            </div>
-        </section>
-
-        <hr class="geo-hr">
-
-        <!-- Hot Takes -->
-        <section>
-            <h2>&#128293; George's Hot Excel Takes</h2>
-            <div style="font-family: 'Comic Sans MS', cursive; font-size: 13px; color: var(--text-dark);">
-                <p>&#9889; VLOOKUP is OVER. XLOOKUP supremacy is here. Deal with it.</p>
-                <p>&#9889; If your spreadsheet has 47 tabs named "Sheet1 (2) (3) FINAL final_v2", we need to talk.</p>
-                <p>&#9889; Power Query is not scary. Your unstructured data is scary.</p>
-                <p>&#9889; Stop emailing spreadsheets as attachments. It's 2026. We have the cloud.</p>
-                <p>&#9889; Python in Excel is the crossover episode nobody expected and everybody needed.</p>
-                <p>&#9889; Yes, I actually ENJOY cleaning data. Don't judge me.</p>
-            </div>
-        </section>
-
-    </main>
+<!-- Horizontal logo version - Geocities style with effects -->
+<div class="logo-glow">
+<svg width="520" height="100" viewBox="0 0 520 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="redGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF6666"/>
+            <stop offset="100%" style="stop-color:#C00000"/>
+        </linearGradient>
+        <filter id="emboss">
+            <feDropShadow dx="1" dy="1" stdDeviation="0" flood-color="#000" flood-opacity="0.5"/>
+            <feDropShadow dx="-1" dy="-1" stdDeviation="0" flood-color="#fff" flood-opacity="0.2"/>
+        </filter>
+    </defs>
+    <!-- STRINGFEST text -->
+    <text x="10" y="65" font-family="'Arial Black', Impact, sans-serif" font-size="58" font-weight="900" fill="#1F2120" stroke="#444" stroke-width="0.5" filter="url(#emboss)" letter-spacing="1">STRINGFEST</text>
+    <!-- Chevron peaks to the right -->
+    <polyline points="395,75 420,25 445,75" fill="none" stroke="url(#redGrad2)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#emboss)"/>
+    <polyline points="420,75 445,25 470,75" fill="none" stroke="url(#redGrad2)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#emboss)"/>
+    <polyline points="445,75 470,25 495,75" fill="none" stroke="url(#redGrad2)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#emboss)"/>
+    <!-- ANALYTICS below peaks -->
+    <text x="420" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#999" letter-spacing="6" filter="url(#emboss)">ANALYTICS</text>
+    <!-- Sparkles -->
+    <text x="500" y="15" font-size="14" fill="#FFD700" opacity="0.8">&#10022;</text>
+    <text x="385" y="15" font-size="10" fill="#FFD700" opacity="0.6">&#10022;</text>
+</svg>
 </div>
 
-<!-- Footer -->
-<footer class="site-footer">
-    <p>
-        &copy; 2026 George Mount / Stringfest Analytics<br>
-        <a href="https://stringfestanalytics.com" target="_blank">stringfestanalytics.com</a>
-    </p>
-    <p class="best-viewed">
-        Best viewed in Netscape Navigator 4.0 at 800x600 resolution<br>
-        Made with &#10084;&#65039; and way too many &lt;table&gt; tags (just kidding, it's flexbox)<br>
-        This site is <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> powered!
-    </p>
-    <p style="margin-top: 8px; font-size: 10px;">
-        &#9664; &#9664; <a href="#">Back to Top</a> &#9654; &#9654;
-    </p>
+<br>
 
-    <!-- Brand chevron motif (bottom-right per Stringfest guidelines) -->
-    <svg class="chevron-motif" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="30,90 60,50 90,90" fill="none" stroke="#CF3338" stroke-width="3"/>
-        <polygon points="30,70 60,30 90,70" fill="none" stroke="#CF3338" stroke-width="3"/>
-        <polygon points="30,50 60,10 90,50" fill="none" stroke="#CF3338" stroke-width="3"/>
-    </svg>
-</footer>
+<hr class="fire-hr">
 
-<!-- Visitor counter script (just for fun - shows a random-ish number) -->
+<br>
+
+<!-- ============================================================ -->
+<!-- ABOUT SECTION -->
+<!-- ============================================================ -->
+
+<a name="about"></a>
+
+<font size="5" color="#CF3338"><b>&#9758; ABOUT GEORGE &#9756;</b></font>
+
+<br><br>
+
+<div class="bevel-box" style="max-width: 600px;">
+<table cellpadding="8" cellspacing="0" border="0" width="100%">
+<tr>
+<td width="140" valign="top" align="center">
+    <!-- ASCII art portrait area -->
+    <div style="border: 2px ridge #CF3338; padding: 5px; background: #1a1a3a; text-align: center;">
+        <font size="6">&#129332;</font><br>
+        <font size="1" color="#707070">~ George M. ~</font><br>
+        <font size="1" color="#CF3338"><b>Microsoft MVP</b></font>
+    </div>
+    <br>
+    <font size="1" color="#FFD700">
+        <span class="spin">&#10029;</span> MVP <span class="spin">&#10029;</span>
+    </font>
+</td>
+<td valign="top">
+    <font size="3" color="#EEECE1">
+        <b>Name:</b> George Mount<br>
+        <b>Location:</b> Cleveland, Ohio &#127466;&#127480;<br>
+        <b>Occupation:</b> Excel Trainer / Author / Analytics Consultant<br>
+        <b>Title:</b> <font color="#CF3338"><b>Microsoft Most Valuable Professional (MVP)</b></font><br>
+        <b>Education:</b> Economics, Finance &amp; Information Systems<br>
+        <b>Publisher:</b> O'Reilly Media (2 books!!)<br>
+        <b>Students:</b> <font color="#FFD700"><b>400,000+</b></font> on LinkedIn Learning<br>
+        <b>Interests:</b> Power Query, Python in Excel, Making Data Beautiful
+    </font>
+    <br><br>
+    <font size="2" color="#EEECE1">
+        George Mount is a corporate trainer and Excel expert who helps
+        finance, accounting, and operations teams work smarter with data.
+        He specializes in the <font color="#CF3338"><b>Modern Excel AI Stack</b></font>
+        &mdash; Python in Excel, Copilot, Power Query, and Power Pivot &mdash;
+        and teaches professionals how to turn complex data into clear,
+        actionable insights.
+    </font>
+    <br><br>
+    <font size="2" color="#EEECE1">
+        Through <font color="#CF3338"><b>Stringfest Analytics</b></font>, he provides
+        training, curriculum development, and consulting for organizations
+        looking to strengthen their analytics capabilities in Excel.
+    </font>
+</td>
+</tr>
+</table>
+</div>
+
+<br>
+
+<!-- BIG STATS -->
+<table cellpadding="5" cellspacing="10" border="0" align="center">
+<tr>
+    <td align="center" class="bevel-box-red" style="width: 160px;">
+        <font size="7" color="#FFD700"><b>400K+</b></font><br>
+        <font size="2" color="#EEECE1">LinkedIn Learning<br>Students Worldwide</font>
+    </td>
+    <td align="center" class="bevel-box-red" style="width: 130px;">
+        <font size="7" color="#FFD700"><b>2</b></font><br>
+        <font size="2" color="#EEECE1">O'Reilly<br>Books Published</font>
+    </td>
+    <td align="center" class="bevel-box-red" style="width: 130px;">
+        <font size="7" color="#FFD700"><b>MVP</b></font><br>
+        <font size="2" color="#EEECE1">Microsoft Most<br>Valuable Professional</font>
+    </td>
+</tr>
+</table>
+
+<br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- BOOKS SECTION -->
+<!-- ============================================================ -->
+
+<a name="books"></a>
+
+<font size="5" color="#CF3338"><b>&#128218; MY BOOKS &#128218;</b></font>
+&nbsp;<span class="blink"><font size="2" color="#FFD700"><b>NEW!</b></font></span>
+
+<br><br>
+
+<font size="3" color="#EEECE1">
+    I have published <font color="#CF3338"><b>TWO</b></font> full-length books
+    with <font color="#FFD700"><b>O'Reilly Media!</b></font>
+    <br>(Yes, the ones with the animals on the cover!!)
+</font>
+
+<br><br>
+
+<div class="bevel-box" style="max-width: 550px;">
+<table cellpadding="8" cellspacing="0" border="0" width="100%">
+<tr>
+    <td width="60" align="center" valign="top"><font size="6">&#128214;</font></td>
+    <td>
+        <font size="3" color="#CF3338"><b>Advancing into Analytics</b></font><br>
+        <font size="2" color="#EEECE1"><b>From Excel to Python and R</b></font><br>
+        <font size="2" color="#707070">O'Reilly Media, 2021</font><br><br>
+        <font size="2" color="#EEECE1">
+            Ready to go beyond Excel? This book bridges the gap between
+            spreadsheets and programming languages for data analysis.
+            Your gateway to Python and R!
+        </font>
+    </td>
+</tr>
+</table>
+</div>
+
+<br>
+
+<div class="bevel-box" style="max-width: 550px;">
+<table cellpadding="8" cellspacing="0" border="0" width="100%">
+<tr>
+    <td width="60" align="center" valign="top"><font size="6">&#128213;</font></td>
+    <td>
+        <font size="3" color="#CF3338"><b>Modern Data Analytics in Excel</b></font><br>
+        <font size="2" color="#EEECE1"><b>Using Power Query, Power Pivot and More</b></font><br>
+        <font size="2" color="#707070">O'Reilly Media, 2024</font><br><br>
+        <font size="2" color="#EEECE1">
+            Power Query! Power Pivot! And more!! Learn how to supercharge
+            your Excel analytics with modern tools. This is the good stuff. &#128293;
+        </font>
+    </td>
+</tr>
+</table>
+</div>
+
+<br>
+
+<font size="2" color="#FFD700" face="Comic Sans MS, cursive">
+    &#11088; Click the books to buy them! Your mom would be so proud! &#11088;
+</font>
+
+<br><br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- WHAT I DO -->
+<!-- ============================================================ -->
+
+<a name="whatido"></a>
+
+<font size="5" color="#CF3338"><b>&#128187; WHAT I CAN HELP YOU WITH &#128187;</b></font>
+
+<br><br>
+
+<div class="bevel-box" style="max-width: 550px; text-align: left;">
+<font size="2" color="#EEECE1">
+    Through Stringfest Analytics, I help teams modernize the way they use Excel.
+    When you combine Excel with tools your organization already has like Python,
+    Copilot, Power Query, and Power Automate, you get faster analysis, fewer errors,
+    and workflows that scale.
+</font>
+<br><br>
+<font size="3" color="#EEECE1">
+    <font color="#CF3338">&#9658;</font> <b>Corporate Excel Training</b> &mdash; from beginner to black belt<br>
+    <font color="#CF3338">&#9658;</font> <b>Modern Excel AI Stack</b> &mdash; Python in Excel + Copilot + Power Query<br>
+    <font color="#CF3338">&#9658;</font> <b>Curriculum Development</b> &mdash; custom training programs<br>
+    <font color="#CF3338">&#9658;</font> <b>Analytics Consulting</b> &mdash; turn messy data into clear insights<br>
+    <font color="#CF3338">&#9658;</font> <b>Speaking &amp; Presentations</b> &mdash; Global Excel Summit and beyond!<br>
+    <font color="#CF3338">&#9658;</font> <b>LinkedIn Learning Courses</b> &mdash; self-paced online learning<br>
+</font>
+</div>
+
+<br>
+
+<div style="border: 3px double #FFD700; padding: 12px; max-width: 450px; margin: 0 auto; background: rgba(192, 0, 0, 0.5);">
+    <font size="3" color="#FFD700" face="Comic Sans MS, cursive">
+        <b>&#128239; Want to work together?</b><br>
+    </font>
+    <font size="2" color="#EEECE1">
+        Visit <a href="https://stringfestanalytics.com" target="_blank"><font color="#FFD700"><b>stringfestanalytics.com</b></font></a>
+        and book a call today!!
+    </font>
+    <br><br>
+    <a href="https://stringfestanalytics.com" target="_blank" class="geo-btn-red">&#9733; BOOK A CALL &#9733;</a>
+</div>
+
+<br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- SKILLS TABLE -->
+<!-- ============================================================ -->
+
+<a name="skills"></a>
+
+<font size="5" color="#CF3338"><b>&#128170; MY SKILL LEVELS &#128170;</b></font>
+
+<br>
+<font size="2" color="#707070"><i>(totally scientific ratings)</i></font>
+
+<br><br>
+
+<table border="1" bordercolor="#CF3338" cellpadding="5" cellspacing="0" bgcolor="#000000" align="center" style="border-collapse: collapse; width: 550px;">
+<tr bgcolor="#CF3338">
+    <td><font size="2" color="#FFFFFF" face="Arial"><b>SKILL</b></font></td>
+    <td><font size="2" color="#FFFFFF" face="Arial"><b>LEVEL</b></font></td>
+    <td width="40%"><font size="2" color="#FFFFFF" face="Arial"><b>POWER METER</b></font></td>
+</tr>
+<tr bgcolor="#0a0a2e">
+    <td><font size="2" color="#EEECE1"><b>Microsoft Excel</b></font></td>
+    <td><font size="2" color="#FFD700">&#128293; LEGENDARY</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:99%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#111133">
+    <td><font size="2" color="#EEECE1"><b>Power Query</b></font></td>
+    <td><font size="2" color="#FFD700">&#9889; EPIC</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:95%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#0a0a2e">
+    <td><font size="2" color="#EEECE1"><b>Power Pivot</b></font></td>
+    <td><font size="2" color="#FFD700">&#9889; EPIC</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:92%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#111133">
+    <td><font size="2" color="#EEECE1"><b>Python</b></font></td>
+    <td><font size="2" color="#CF3338">&#128640; MASTER</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:88%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#0a0a2e">
+    <td><font size="2" color="#EEECE1"><b>Python in Excel</b></font></td>
+    <td><font size="2" color="#CF3338">&#128640; MASTER</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:90%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#111133">
+    <td><font size="2" color="#EEECE1"><b>Copilot in Excel</b></font></td>
+    <td><font size="2" color="#EEECE1">&#11088; ADVANCED</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:85%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#0a0a2e">
+    <td><font size="2" color="#EEECE1"><b>R</b></font></td>
+    <td><font size="2" color="#EEECE1">&#11088; ADVANCED</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:80%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#111133">
+    <td><font size="2" color="#EEECE1"><b>Teaching / Training</b></font></td>
+    <td><font size="2" color="#FFD700">&#128293; LEGENDARY</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#CF3338,#FF4444,#CF3338);width:98%;height:100%;"></div></div></td>
+</tr>
+<tr bgcolor="#0a0a2e">
+    <td><font size="2" color="#EEECE1"><b>Dad Jokes About Data</b></font></td>
+    <td><font size="2" color="#FFD700">&#129412; MAX LEVEL</font></td>
+    <td><div style="background:#333;height:14px;border:1px inset #666;"><div style="background:linear-gradient(90deg,#FFD700,#CF3338,#FFD700);width:100%;height:100%;"></div></div></td>
+</tr>
+</table>
+
+<br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- HOT TAKES -->
+<!-- ============================================================ -->
+
+<a name="hottakes"></a>
+
+<font size="5" color="#CF3338"><b>&#128293; GEORGE'S HOT EXCEL TAKES &#128293;</b></font>
+
+<br><br>
+
+<div class="bevel-box" style="max-width: 550px; text-align: left;">
+<font face="Comic Sans MS, cursive" size="2">
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">VLOOKUP is OVER. XLOOKUP supremacy is here. Deal with it.</font><br><br>
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">If your spreadsheet has 47 tabs named "Sheet1 (2) (3) FINAL final_v2", we need to talk.</font><br><br>
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">Power Query is not scary. Your unstructured data is scary.</font><br><br>
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">Stop emailing spreadsheets as attachments. It's 2026. We have the cloud.</font><br><br>
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">Python in Excel is the crossover episode nobody expected and everybody needed.</font><br><br>
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">Yes, I actually ENJOY cleaning data. Don't judge me.</font><br><br>
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">Your entire department shouldn't run on one person's magic spreadsheet that nobody else understands.</font><br><br>
+    <font color="#FFD700">&#9889;</font> <font color="#EEECE1">CTRL+S is not a backup strategy.</font>
+</font>
+</div>
+
+<br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- GUESTBOOK -->
+<!-- ============================================================ -->
+
+<a name="guestbook"></a>
+
+<font size="5" color="#CF3338"><b>&#9997; SIGN MY GUESTBOOK! &#9997;</b></font>
+&nbsp; <span class="bounce">&#128236;</span>
+
+<br><br>
+
+<font size="2" color="#EEECE1">Let me know you stopped by!! Leave a message!!</font>
+
+<br><br>
+
+<div class="bevel-box" style="max-width: 500px; text-align: left;">
+    <div class="gb-entry">
+        <font color="#CF3338"><b>ExcelFan2000</b></font>
+        <font size="1" color="#707070"> - 03/28/2026</font><br>
+        <font size="2" color="#EEECE1">George your XLOOKUP tutorial saved my life!! My boss thinks I'm a genius now. TYSM!!! &#128591;</font>
+    </div>
+    <div class="gb-entry">
+        <font color="#CF3338"><b>DataNerd_Kelly</b></font>
+        <font size="1" color="#707070"> - 03/15/2026</font><br>
+        <font size="2" color="#EEECE1">Just finished your O'Reilly book. Amazing!! When's the next one?? &#128218;&#128293;</font>
+    </div>
+    <div class="gb-entry">
+        <font color="#CF3338"><b>PivotTableKing</b></font>
+        <font size="1" color="#707070"> - 02/22/2026</font><br>
+        <font size="2" color="#EEECE1">Found this site through the Excel Geeks Web Ring. A++ content. Bookmarked!! &#11088;&#11088;&#11088;&#11088;&#11088;</font>
+    </div>
+    <div class="gb-entry">
+        <font color="#CF3338"><b>spreadsheet_sally</b></font>
+        <font size="1" color="#707070"> - 02/10/2026</font><br>
+        <font size="2" color="#EEECE1">I used to think Power Query was scary until I watched your LinkedIn Learning course. You rock!! &#127928;</font>
+    </div>
+    <div class="gb-entry">
+        <font color="#CF3338"><b>ClevelandRocks88</b></font>
+        <font size="1" color="#707070"> - 01/30/2026</font><br>
+        <font size="2" color="#EEECE1">CLE represent!! Great to have an MVP in our city. Keep it up George!! &#127959;&#128170;</font>
+    </div>
+    <div class="gb-entry">
+        <font color="#CF3338"><b>FormulaWizard</b></font>
+        <font size="1" color="#707070"> - 01/15/2026</font><br>
+        <font size="2" color="#EEECE1">=IF(George="Awesome","YES!!!!","impossible") ... it always returns YES. &#129299;</font>
+    </div>
+</div>
+
+<br>
+
+<a href="#" class="geo-btn-red">&#9997; SIGN THE GUESTBOOK</a>
+
+<br><br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- COOL LINKS -->
+<!-- ============================================================ -->
+
+<a name="links"></a>
+
+<font size="5" color="#CF3338"><b>&#128279; COOL LINKS &#128279;</b></font>
+
+<br><br>
+
+<div class="bevel-box" style="max-width: 500px; text-align: left;">
+    <font size="3" color="#FFD700"><b>&#128202; Excel &amp; Data Stuff</b></font><br>
+    <font size="2">
+        <font color="#CF3338">&#9658;</font> <a href="https://stringfestanalytics.com" target="_blank">Stringfest Analytics (my REAL site!)</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a> <span class="blink"><font size="1" color="#FFD700"><b>HOT!</b></font></span><br>
+        <font color="#CF3338">&#9658;</font> <a href="https://www.oreilly.com/" target="_blank">O'Reilly Media</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="https://techcommunity.microsoft.com" target="_blank">Microsoft Tech Community</a><br>
+    </font>
+    <br>
+    <font size="3" color="#FFD700"><b>&#127760; The Best of the Web</b></font><br>
+    <font size="2">
+        <font color="#CF3338">&#9658;</font> <a href="#">AltaVista Search Engine</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="#">GeoCities Neighborhood Directory</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="#">The ENCYCLOPAEDIA of encyclopedias (Wikipedia)</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="#">Download Winamp (it really whips the llama's...)</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="#">Angelfire Free Homepages</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="#">MapQuest - Print Your Directions!</a><br>
+        <font color="#CF3338">&#9658;</font> <a href="#">RealPlayer Download</a><br>
+    </font>
+</div>
+
+<br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- WEB RINGS -->
+<!-- ============================================================ -->
+
+<a name="webring"></a>
+
+<font size="4" color="#CF3338"><b>&#127760; Web Rings &#127760;</b></font>
+
+<br><br>
+
+<div class="webring">
+    <font size="3" color="#CF3338"><b>&#9656; The Excel Geeks Web Ring &#9666;</b></font><br>
+    <font size="2" color="#EEECE1">This site is part of the <b>Excel Geeks Web Ring</b></font><br><br>
+    <a href="#" class="geo-btn">&laquo; Previous</a>
+    <a href="#" class="geo-btn">Random</a>
+    <a href="#" class="geo-btn">List All</a>
+    <a href="#" class="geo-btn">Next &raquo;</a>
+</div>
+
+<br>
+
+<div class="webring">
+    <font size="3" color="#CF3338"><b>&#9656; Data Nerds United Ring &#9666;</b></font><br>
+    <font size="2" color="#EEECE1">Connecting data enthusiasts since 1998!</font><br><br>
+    <a href="#" class="geo-btn">&laquo; Previous</a>
+    <a href="#" class="geo-btn">Random</a>
+    <a href="#" class="geo-btn">List All</a>
+    <a href="#" class="geo-btn">Next &raquo;</a>
+</div>
+
+<br>
+
+<div class="webring">
+    <font size="3" color="#CF3338"><b>&#9656; Cleveland Homepages Ring &#9666;</b></font><br>
+    <font size="2" color="#EEECE1">Cleveland rocks! &#127928;</font><br><br>
+    <a href="#" class="geo-btn">&laquo; Previous</a>
+    <a href="#" class="geo-btn">Random</a>
+    <a href="#" class="geo-btn">List All</a>
+    <a href="#" class="geo-btn">Next &raquo;</a>
+</div>
+
+<br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- 88x31 BADGES -->
+<!-- ============================================================ -->
+
+<font size="3" color="#CF3338"><b>&#127991; Cool Badges</b></font>
+
+<br><br>
+
+<span class="badge-88x31" style="background: linear-gradient(180deg, #CF3338, #800); color: #fff; border-color: #CF3338;">MICROSOFT<br>MVP</span>
+<span class="badge-88x31" style="background: linear-gradient(180deg, #333, #000); color: #0f0; border-color: #0f0;">MADE WITH<br>NOTEPAD</span>
+<span class="badge-88x31" style="background: linear-gradient(180deg, #003, #000); color: #7bf; border-color: #47a;">BEST VIEWED<br>800x600</span>
+<span class="badge-88x31" style="background: linear-gradient(180deg, #330, #000); color: #FFD700; border-color: #960;">EXCEL<br>FOREVER</span>
+<span class="badge-88x31" style="background: linear-gradient(180deg, #CF3338, #600); color: #fff; border-color: #e88;">O'REILLY<br>AUTHOR</span>
+<span class="badge-88x31" style="background: linear-gradient(180deg, #004, #001); color: #aaf; border-color: #33a;">POWERED BY<br>CAFFEINE</span>
+<span class="badge-88x31" style="background: linear-gradient(180deg, #222, #000); color: #CF3338; border-color: #CF3338;">STRINGFEST<br>ANALYTICS</span>
+<span class="badge-88x31" style="background: linear-gradient(180deg, #030, #000); color: #0f0; border-color: #090;">GITHUB<br>PAGES</span>
+
+<br><br>
+
+<hr class="fire-hr">
+
+<br>
+
+<!-- ============================================================ -->
+<!-- EMAIL / CONTACT -->
+<!-- ============================================================ -->
+
+<font size="3" color="#FFD700">
+    <span class="bounce">&#9993;</span>
+    <b>Send me electronic mail!</b>
+    <span class="bounce">&#9993;</span>
+</font>
+<br>
+<font size="2" color="#EEECE1">
+    Visit <a href="https://stringfestanalytics.com" target="_blank"><font color="#CF3338"><b>stringfestanalytics.com</b></font></a> to get in touch!
+</font>
+
+<br><br>
+
+<!-- STACKED LOGO AGAIN AT BOTTOM (like a letterhead) -->
+<div style="opacity: 0.6; margin: 20px auto;">
+<svg width="180" height="150" viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="40,145 100,40 160,145" fill="none" stroke="#CF3338" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="100,145 160,40 220,145" fill="none" stroke="#CF3338" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="160,145 220,40 280,145" fill="none" stroke="#CF3338" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="160" y="195" text-anchor="middle" font-family="'Arial Black', Impact, sans-serif" font-size="50" font-weight="900" fill="#1F2120" stroke="#555" stroke-width="0.5" letter-spacing="2">STRINGFEST</text>
+    <text x="230" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#707070" letter-spacing="8">ANALYTICS</text>
+</svg>
+</div>
+
+<br>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+
+<div class="construction-stripe"></div>
+
+<br>
+
+<font size="2" color="#707070">
+    &copy; 2026 George Mount / Stringfest Analytics<br>
+    <a href="https://stringfestanalytics.com" target="_blank"><font color="#CF3338">stringfestanalytics.com</font></a>
+</font>
+
+<br><br>
+
+<font size="1" color="#555">
+    Best viewed in Netscape Navigator 4.0 at 800x600 resolution<br>
+    Optimized for 28.8k modem &mdash; please be patient while page loads!<br>
+    This page was hand-coded in Notepad.exe by a Microsoft MVP<br>
+    No spreadsheets were harmed in the making of this website<br>
+    Hosted on <a href="https://pages.github.com/" target="_blank"><font color="#707070">GitHub Pages</font></a> (the GeoCities of our generation)
+</font>
+
+<br><br>
+
+<font size="2" color="#CF3338">
+    <a href="#"><font color="#CF3338">&#9650; Back to Top &#9650;</font></a>
+</font>
+
+<br><br>
+
+<!-- SEO keywords just like heavensgate.com lol -->
+<font size="1" color="#0a0a2e">
+Excel Excel Excel spreadsheet spreadsheet VLOOKUP XLOOKUP pivot table Power Query Power Pivot Microsoft MVP George Mount Stringfest Analytics data analytics O'Reilly LinkedIn Learning Cleveland Ohio formulas macros VBA Python in Excel Copilot corporate training data visualization dashboard Power BI analytics consultant
+</font>
+
+<br><br>
+
+</center>
+
+<!-- ============================================================ -->
+<!-- SCRIPTS -->
+<!-- ============================================================ -->
+
 <script>
-    // Fake visitor counter that increments based on the date
-    const baseCount = 7000;
-    const daysSinceEpoch = Math.floor(Date.now() / 86400000);
-    const fakeCount = baseCount + (daysSinceEpoch % 1000) + Math.floor(Math.random() * 5);
-    const counterText = String(fakeCount).padStart(6, '0');
+// Fake hit counter
+const base = 8000;
+const days = Math.floor(Date.now() / 86400000);
+const count = base + (days % 2000) + Math.floor(Math.random() * 10);
+const el = document.getElementById('hitCounter');
+if (el) el.textContent = String(count).padStart(6, '0').replace(/(\d{3})(\d{3})/, '$1,$2');
 
-    // Update the counter in the banner
-    const banner = document.querySelector('.top-banner');
-    if (banner) {
-        banner.innerHTML = banner.innerHTML.replace('007,342',
-            counterText.slice(0,3) + ',' + counterText.slice(3));
-    }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
     });
+});
+
+// Cursor trail effect - very 1997
+const trail = [];
+const trailCount = 8;
+for (let i = 0; i < trailCount; i++) {
+    const dot = document.createElement('div');
+    dot.style.cssText = 'position:fixed;width:6px;height:6px;background:#CF3338;border-radius:50%;pointer-events:none;z-index:9999;transition:opacity 0.3s;opacity:' + (1 - i/trailCount);
+    dot.style.boxShadow = '0 0 ' + (4 + i) + 'px #CF3338';
+    document.body.appendChild(dot);
+    trail.push({el: dot, x: 0, y: 0});
+}
+let mouseX = 0, mouseY = 0;
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+function animateTrail() {
+    trail.forEach((dot, i) => {
+        const prev = i === 0 ? {x: mouseX, y: mouseY} : trail[i-1];
+        dot.x += (prev.x - dot.x) * 0.4;
+        dot.y += (prev.y - dot.y) * 0.4;
+        dot.el.style.left = dot.x + 'px';
+        dot.el.style.top = dot.y + 'px';
+    });
+    requestAnimationFrame(animateTrail);
+}
+animateTrail();
 </script>
 
 </body>
