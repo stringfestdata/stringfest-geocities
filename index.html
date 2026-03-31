@@ -7,26 +7,26 @@
 <meta name="keywords" content="Excel, spreadsheet, VLOOKUP, XLOOKUP, pivot table, Power Query, Power Pivot, Microsoft MVP, George Mount, Stringfest Analytics, data analytics, O'Reilly, LinkedIn Learning, Cleveland Ohio, spreadsheet guru, Excel tips, Excel tricks, formulas, macros, VBA, Python in Excel, Copilot">
 <meta name="description" content="Welcome to George Mount's Excel Paradise! Microsoft MVP, O'Reilly Author, LinkedIn Learning Instructor. Stringfest Analytics - Your #1 Source for Excel Knowledge on the World Wide Web!!!">
 <style>
-:root {
-    --brand-red: #CF3338;
-    --brand-red-dark: #C00000;
-    --bg-light: #EEECE1;
-    --text-body: #707070;
-    --text-dark: #1F2120;
-    --white: #FFFFFF;
-}
-
+/*
+    Tiled spreadsheet-grid wallpaper.
+    A subtle repeating grid that looks like faint Excel cells
+    on a warm parchment-tan background -- very 90s.
+*/
 body {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+    background-color: #E8E0CC;
+    background-image:
+        linear-gradient(to right, rgba(180,170,150,0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(180,170,150,0.25) 1px, transparent 1px);
+    background-size: 22px 18px;
+    color: #1F2120;
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
 }
 
-a { color: var(--brand-red); }
-a:visited { color: var(--brand-red-dark); }
-a:hover { color: #FF6666; text-decoration: underline; }
+a { color: #CF3338; }
+a:visited { color: #993333; }
+a:hover { color: #FF4444; text-decoration: underline; }
 
 /* Blink */
 @keyframes blink {
@@ -43,44 +43,37 @@ a:hover { color: #FF6666; text-decoration: underline; }
 .marquee-wrap { overflow: hidden; white-space: nowrap; width: 100%; }
 .marquee-inner { display: inline-block; animation: scroll-left 20s linear infinite; }
 
-/* Subtle logo shadow pulse */
-@keyframes logo-pulse {
-    0%, 100% { filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3)); }
-    50% { filter: drop-shadow(2px 2px 6px rgba(207,51,56,0.5)); }
-}
-.logo-animated { animation: logo-pulse 3s ease-in-out infinite; }
-
-/* Beveled boxes */
+/* Beveled content boxes */
 .bevel-box {
-    border: 2px outset #ccc;
+    border: 2px outset #cbb99a;
     padding: 12px;
     margin: 10px auto;
-    background: var(--white);
+    background: #F5F0E3;
 }
 
 .bevel-box-red {
     border: 2px outset #e88;
     padding: 12px;
     margin: 10px auto;
-    background: var(--brand-red-dark);
+    background: #C00000;
 }
 
-/* Nav link table */
+/* Nav link table (heavensgate.com style) */
 .link-table {
-    border: 2px ridge var(--brand-red);
+    border: 2px ridge #CF3338;
     border-collapse: separate;
     border-spacing: 2px;
     margin: 10px auto;
-    background: var(--white);
+    background: #F5F0E3;
 }
 .link-table td {
-    border: 1px inset #ddd;
+    border: 1px inset #cbb;
     padding: 6px 18px;
     text-align: center;
     font-size: 14px;
     font-family: Arial, sans-serif;
 }
-.link-table td:hover { background: #f5e8e8; }
+.link-table td:hover { background: #f0e0d8; }
 
 /* Hit counter */
 .counter {
@@ -98,17 +91,17 @@ a:hover { color: #FF6666; text-decoration: underline; }
 .red-pointed-hr {
     border: none;
     height: 3px;
-    background: linear-gradient(90deg, var(--bg-light), var(--brand-red), var(--brand-red-dark), var(--brand-red), var(--bg-light));
+    background: linear-gradient(90deg, #E8E0CC, #CF3338, #C00000, #CF3338, #E8E0CC);
     margin: 20px 40px;
 }
 
-/* Thick red bar HR */
+/* Thick red bar */
 .red-bar-hr {
     border: none;
     height: 6px;
-    background: var(--brand-red);
-    margin: 15px 0;
-    box-shadow: 0 2px 0 var(--brand-red-dark);
+    background: #CF3338;
+    margin: 0;
+    box-shadow: 0 2px 0 #990000;
 }
 
 /* Construction stripes in brand red */
@@ -116,29 +109,29 @@ a:hover { color: #FF6666; text-decoration: underline; }
     height: 12px;
     background: repeating-linear-gradient(
         -45deg,
-        var(--brand-red) 0px, var(--brand-red) 10px,
-        var(--brand-red-dark) 10px, var(--brand-red-dark) 20px
+        #CF3338 0px, #CF3338 10px,
+        #C00000 10px, #C00000 20px
     );
 }
 
 /* Webring box */
 .webring {
-    border: 2px ridge var(--text-body);
+    border: 2px ridge #999;
     padding: 10px;
     margin: 8px auto;
     max-width: 420px;
-    background: var(--white);
+    background: #F5F0E3;
     text-align: center;
     font-size: 12px;
     font-family: Arial, sans-serif;
 }
 
-/* 90s beveled button */
+/* 90s beveled buttons */
 .geo-btn {
     display: inline-block;
     border: 2px outset #bbb;
     background: linear-gradient(180deg, #eee 0%, #bbb 100%);
-    color: var(--text-dark) !important;
+    color: #1F2120 !important;
     padding: 3px 12px;
     font-size: 12px;
     font-family: Arial, sans-serif;
@@ -151,7 +144,7 @@ a:hover { color: #FF6666; text-decoration: underline; }
 .geo-btn-red {
     display: inline-block;
     border: 2px outset #e88;
-    background: linear-gradient(180deg, #e04040 0%, var(--brand-red-dark) 100%);
+    background: linear-gradient(180deg, #e04040 0%, #C00000 100%);
     color: #fff !important;
     padding: 4px 16px;
     font-size: 13px;
@@ -179,9 +172,9 @@ a:hover { color: #FF6666; text-decoration: underline; }
     padding-top: 1px;
 }
 
-/* Guestbook */
+/* Guestbook entries */
 .gb-entry {
-    border-bottom: 1px dashed var(--brand-red);
+    border-bottom: 1px dashed #CF3338;
     padding: 8px 0;
     text-align: left;
     font-size: 13px;
@@ -194,106 +187,59 @@ a:hover { color: #FF6666; text-decoration: underline; }
     font-family: Arial, sans-serif;
 }
 .skills-table th {
-    background: var(--brand-red);
+    background: #CF3338;
     color: white;
     padding: 5px 12px;
     font-size: 12px;
-    border: 1px solid var(--brand-red-dark);
+    border: 1px solid #990000;
 }
 .skills-table td {
     padding: 5px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #cbb;
     font-size: 12px;
-    color: var(--text-dark);
+    color: #1F2120;
 }
-.skills-table tr:nth-child(even) td { background: var(--bg-light); }
-.skills-table tr:nth-child(odd) td { background: var(--white); }
+.skills-table tr:nth-child(even) td { background: #EDE8D8; }
+.skills-table tr:nth-child(odd) td { background: #F5F0E3; }
 
-/* Bounce animation for email */
+/* Bounce / spin animations */
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
 }
 .bounce { display: inline-block; animation: bounce 0.5s ease-in-out infinite; }
 
-/* Spin for decorative elements */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 .spin { display: inline-block; animation: spin 4s linear infinite; }
-
-/* Chevron motif bottom-right (brand requirement) */
-.chevron-motif {
-    position: fixed;
-    bottom: -15px;
-    right: -15px;
-    width: 140px;
-    height: 140px;
-    pointer-events: none;
-    opacity: 0.12;
-    z-index: 0;
-}
 </style>
 </head>
 <body>
 
 <!-- RED CONSTRUCTION STRIPE -->
 <div class="construction-stripe"></div>
-
-<!-- RED TOP BORDER (brand element) -->
-<div class="red-bar-hr" style="margin: 0;"></div>
+<div class="red-bar-hr"></div>
 
 <br>
 <center>
 
 <!-- ============================================================ -->
-<!-- LOGO - STACKED VERSION (accurate to real logo, 90s-ified) -->
+<!-- HEADER / TITLE -->
 <!-- ============================================================ -->
-
-<div class="logo-animated">
-<svg width="340" height="230" viewBox="0 0 340 230" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <filter id="retro-shadow">
-            <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#000" flood-opacity="0.25"/>
-        </filter>
-    </defs>
-    <!--
-        Three overlapping mountain/chevron peaks.
-        Each peak shares a leg with its neighbor, creating connected ridges.
-        Thick rounded strokes matching the actual Stringfest logo.
-    -->
-    <!-- Peak 1 (left) -->
-    <polyline points="50,130 110,30 170,130" fill="none" stroke="#CF3338" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#retro-shadow)"/>
-    <!-- Peak 2 (center) -->
-    <polyline points="110,130 170,30 230,130" fill="none" stroke="#CF3338" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#retro-shadow)"/>
-    <!-- Peak 3 (right) -->
-    <polyline points="170,130 230,30 290,130" fill="none" stroke="#CF3338" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#retro-shadow)"/>
-    <!--
-        STRINGFEST wordmark - tall narrow condensed uppercase.
-        The real font is "Aliens & Cows" which is very tall/condensed.
-        Using Arial Narrow / a condensed font-stretch to approximate it.
-    -->
-    <text x="170" y="175" text-anchor="middle"
-          font-family="'Arial Narrow', 'Impact', 'Arial Black', sans-serif"
-          font-size="52" font-weight="bold" font-stretch="condensed"
-          fill="#1F2120" letter-spacing="5"
-          filter="url(#retro-shadow)">STRINGFEST</text>
-    <!-- ANALYTICS - spaced out, lighter weight, positioned to the right under peaks -->
-    <text x="232" y="200" text-anchor="middle"
-          font-family="Arial, Helvetica, sans-serif"
-          font-size="16" fill="#707070" letter-spacing="7"
-          filter="url(#retro-shadow)">ANALYTICS</text>
-</svg>
-</div>
-
-<br>
 
 <font size="2" color="#CF3338">&#9733; &#9733; &#9733; &#9733; &#9733; &#9733; &#9733; &#9733; &#9733; &#9733; &#9733; &#9733; &#9733;</font>
 
 <br><br>
 
-<font size="5" color="#CF3338"><b>W E L C O M E&nbsp;&nbsp;T O</b></font>
+<font size="6" color="#CF3338" face="Arial Black"><b>STRINGFEST ANALYTICS</b></font>
+<br>
+<font size="3" color="#707070" face="Arial"><i>Analytics &amp; AI for Modern Excel</i></font>
+
+<br><br>
+
+<font size="5" color="#CF3338" face="Arial Black"><b>W E L C O M E&nbsp;&nbsp;T O</b></font>
 <br>
 <font size="7" color="#1F2120"><b>George Mount's</b></font>
 <br>
@@ -306,7 +252,7 @@ a:hover { color: #FF6666; text-decoration: underline; }
 <br><br>
 
 <!-- UNDER CONSTRUCTION -->
-<font size="2" color="#CF3338">
+<font size="2" color="#CF3338" face="Arial">
     <span class="bounce">&#128679;</span>
     <b>&nbsp;THIS SITE IS PERMANENTLY UNDER CONSTRUCTION&nbsp;</b>
     <span class="bounce">&#128679;</span>
@@ -315,7 +261,7 @@ a:hover { color: #FF6666; text-decoration: underline; }
 <br><br>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap" style="background: var(--brand-red-dark); padding: 4px 0;">
+<div class="marquee-wrap" style="background: #C00000; padding: 4px 0;">
     <span class="marquee-inner" style="color: #fff; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold;">
         &#9733;&#9733;&#9733; MICROSOFT MVP AWARD WINNER!!! &#9733;&#9733;&#9733; TWO O'REILLY BOOKS PUBLISHED &#9733;&#9733;&#9733; 400,000+ LINKEDIN LEARNING STUDENTS &#9733;&#9733;&#9733; CLEVELAND OHIO REPRESENT!!! &#9733;&#9733;&#9733; VLOOKUP IS DEAD, LONG LIVE XLOOKUP &#9733;&#9733;&#9733; POWER QUERY FOREVER &#9733;&#9733;&#9733;
     </span>
@@ -324,9 +270,9 @@ a:hover { color: #FF6666; text-decoration: underline; }
 <br>
 
 <!-- HIT COUNTER -->
-<font size="2" color="#707070">You are visitor number:</font><br>
+<font size="2" color="#707070" face="Arial">You are visitor number:</font><br>
 <span class="counter" id="hitCounter">008,472</span>
-<br><font size="1" color="#707070">to this site since January 12, 1999</font>
+<br><font size="1" color="#707070" face="Arial">to this site since January 12, 1999</font>
 
 <br>
 
@@ -363,44 +309,6 @@ a:hover { color: #FF6666; text-decoration: underline; }
 
 <hr class="red-pointed-hr">
 
-<!-- ============================================================ -->
-<!-- HORIZONTAL LOGO (accurate to real logo, just with drop shadow) -->
-<!-- ============================================================ -->
-
-<div class="logo-animated">
-<svg width="540" height="90" viewBox="0 0 540 90" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <filter id="retro-shadow2">
-            <feDropShadow dx="2" dy="2" stdDeviation="0" flood-color="#000" flood-opacity="0.2"/>
-        </filter>
-    </defs>
-    <!--
-        STRINGFEST wordmark - tall condensed caps on the left.
-        Matching the horizontal logo layout from the user's image.
-    -->
-    <text x="8" y="60" font-family="'Arial Narrow', 'Impact', 'Arial Black', sans-serif"
-          font-size="54" font-weight="bold" font-stretch="condensed"
-          fill="#1F2120" letter-spacing="4"
-          filter="url(#retro-shadow2)">STRINGFEST</text>
-    <!--
-        Three overlapping peaks to the right of the text.
-        In the horizontal logo, peaks are right-aligned next to the wordmark.
-    -->
-    <polyline points="390,70 415,18 440,70" fill="none" stroke="#CF3338" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" filter="url(#retro-shadow2)"/>
-    <polyline points="415,70 440,18 465,70" fill="none" stroke="#CF3338" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" filter="url(#retro-shadow2)"/>
-    <polyline points="440,70 465,18 490,70" fill="none" stroke="#CF3338" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" filter="url(#retro-shadow2)"/>
-    <!-- ANALYTICS below the peaks -->
-    <text x="440" y="85" text-anchor="middle"
-          font-family="Arial, Helvetica, sans-serif"
-          font-size="13" fill="#707070" letter-spacing="6"
-          filter="url(#retro-shadow2)">ANALYTICS</text>
-</svg>
-</div>
-
-<br>
-
-<hr class="red-pointed-hr">
-
 <br>
 
 <!-- ============================================================ -->
@@ -417,7 +325,7 @@ a:hover { color: #FF6666; text-decoration: underline; }
 <table cellpadding="10" cellspacing="0" border="0" width="100%">
 <tr>
 <td width="140" valign="top" align="center">
-    <div style="border: 2px ridge var(--brand-red); padding: 8px; background: var(--bg-light); text-align: center;">
+    <div style="border: 2px ridge #CF3338; padding: 8px; background: #EDE8D8; text-align: center;">
         <font size="6">&#129332;</font><br>
         <font size="1" color="#707070">~ George M. ~</font><br>
         <font size="1" color="#CF3338"><b>Microsoft MVP</b></font>
@@ -582,7 +490,7 @@ a:hover { color: #FF6666; text-decoration: underline; }
 
 <br>
 
-<div style="border: 3px double var(--brand-red); padding: 15px; max-width: 460px; margin: 0 auto; background: var(--brand-red-dark);">
+<div style="border: 3px double #CF3338; padding: 15px; max-width: 460px; margin: 0 auto; background: #C00000;">
     <font size="3" color="#FFFFFF" face="Comic Sans MS, cursive">
         <b>&#128239; Want to work together?</b><br>
     </font>
@@ -882,23 +790,12 @@ a:hover { color: #FF6666; text-decoration: underline; }
 
 <br><br>
 
-<!-- Small stacked logo at bottom (like a letterhead / brand footer) -->
-<div style="opacity: 0.5; margin: 15px auto;">
-<svg width="160" height="120" viewBox="0 0 340 230" xmlns="http://www.w3.org/2000/svg">
-    <polyline points="50,130 110,30 170,130" fill="none" stroke="#CF3338" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-    <polyline points="110,130 170,30 230,130" fill="none" stroke="#CF3338" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-    <polyline points="170,130 230,30 290,130" fill="none" stroke="#CF3338" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="170" y="175" text-anchor="middle" font-family="'Arial Narrow','Impact','Arial Black',sans-serif" font-size="52" font-weight="bold" fill="#1F2120" letter-spacing="5">STRINGFEST</text>
-    <text x="232" y="200" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#707070" letter-spacing="7">ANALYTICS</text>
-</svg>
-</div>
+<hr class="red-pointed-hr">
 
 <br>
 
 <!-- RED BAR -->
-<div class="red-bar-hr" style="margin: 0;"></div>
-
-<!-- CONSTRUCTION STRIPE -->
+<div class="red-bar-hr"></div>
 <div class="construction-stripe"></div>
 
 <br>
@@ -927,7 +824,7 @@ a:hover { color: #FF6666; text-decoration: underline; }
 <br><br>
 
 <!-- SEO keywords at bottom (a la heavensgate.com) -->
-<font size="1" color="#EEECE1">
+<font size="1" color="#E8E0CC">
 Excel Excel Excel spreadsheet spreadsheet VLOOKUP XLOOKUP pivot table Power Query Power Pivot Microsoft MVP George Mount Stringfest Analytics data analytics O'Reilly LinkedIn Learning Cleveland Ohio formulas macros VBA Python in Excel Copilot corporate training data visualization dashboard Power BI analytics consultant
 </font>
 
@@ -935,45 +832,38 @@ Excel Excel Excel spreadsheet spreadsheet VLOOKUP XLOOKUP pivot table Power Quer
 
 </center>
 
-<!-- Brand chevron motif bottom-right (per brand guidelines) -->
-<svg class="chevron-motif" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-    <polyline points="20,95 60,35 100,95" fill="none" stroke="#CF3338" stroke-width="4"/>
-    <polyline points="20,75 60,15 100,75" fill="none" stroke="#CF3338" stroke-width="4"/>
-    <polyline points="20,55 60,-5 100,55" fill="none" stroke="#CF3338" stroke-width="4"/>
-</svg>
-
 <!-- ============================================================ -->
 <!-- SCRIPTS -->
 <!-- ============================================================ -->
 <script>
 // Fake hit counter
-const base = 8000;
-const days = Math.floor(Date.now() / 86400000);
-const count = base + (days % 2000) + Math.floor(Math.random() * 10);
-const el = document.getElementById('hitCounter');
+var base = 8000;
+var days = Math.floor(Date.now() / 86400000);
+var count = base + (days % 2000) + Math.floor(Math.random() * 10);
+var el = document.getElementById('hitCounter');
 if (el) el.textContent = String(count).padStart(6, '0').replace(/(\d{3})(\d{3})/, '$1,$2');
 
 // Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
-        const t = document.querySelector(this.getAttribute('href'));
+        var t = document.querySelector(this.getAttribute('href'));
         if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
     });
 });
 
-// Cursor trail effect - red dots following the mouse (very 1997)
-const trail = [];
-for (let i = 0; i < 6; i++) {
-    const dot = document.createElement('div');
+// Cursor trail effect (very 1997)
+var trail = [];
+for (var i = 0; i < 6; i++) {
+    var dot = document.createElement('div');
     dot.style.cssText = 'position:fixed;width:' + (6-i) + 'px;height:' + (6-i) + 'px;background:#CF3338;border-radius:50%;pointer-events:none;z-index:9999;opacity:' + (1 - i*0.15);
     document.body.appendChild(dot);
     trail.push({el: dot, x: 0, y: 0});
 }
-let mx = 0, my = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+var mx = 0, my = 0;
+document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
 (function animate() {
-    trail.forEach((d, i) => {
-        const prev = i === 0 ? {x: mx, y: my} : trail[i-1];
+    trail.forEach(function(d, i) {
+        var prev = i === 0 ? {x: mx, y: my} : trail[i-1];
         d.x += (prev.x - d.x) * 0.35;
         d.y += (prev.y - d.y) * 0.35;
         d.el.style.left = d.x + 'px';
